@@ -8,16 +8,18 @@
   </head>
   <body>
     <div class="neon-sign">
-      <h1 class="neon-text">
-        Tea Shoppe
-      </h1>
+      <img src="images/sign.png" alt="neon open sign" />
     </div>
     <div id="results">
-      <div class="label">Order for: </div> <div data-customer class="result"></div>
-      <div class="label">Cups of Tea: </div> <div data-num-cups class="result"></div>
-      <div class="label">Biscotti: </div> <div data-biscotti class="result"></div>
-      <hr>
-      <div class="label">Your total today: </div> <div data-total class="result"></div>
+      <div class="label">Order for:</div>
+      <div data-customer class="result"></div>
+      <div class="label">Cups of Tea:</div>
+      <div data-num-cups class="result"></div>
+      <div class="label">Biscotti:</div>
+      <div data-biscotti class="result"></div>
+      <hr />
+      <div class="label">Your total today:</div>
+      <div data-total class="result"></div>
     </div>
     <script>
       let name = prompt("What is your name?");
@@ -29,10 +31,10 @@
         total += 2;
       }
 
-      const custNameElement = document.querySelector('[data-customer]');
-      const numCupsElement = document.querySelector('[data-num-cups');
-      const biscottiElement = document.querySelector('[data-biscotti');
-      const totalElement = document.querySelector('[data-total');
+      const custNameElement = document.querySelector("[data-customer]");
+      const numCupsElement = document.querySelector("[data-num-cups");
+      const biscottiElement = document.querySelector("[data-biscotti");
+      const totalElement = document.querySelector("[data-total");
 
       custNameElement.innerText = name;
 
