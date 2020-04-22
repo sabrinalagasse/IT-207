@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sabrina's Tea Shoppe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="neon-sign">
+      <h1 class="neon-text">
+        Tea Shoppe
+      </h1>
+    </div>
+    <div id="results">
+      <div class="label">Order for: </div> <div data-customer class="result"></div>
+      <div class="label">Cups of Tea: </div> <div data-num-cups class="result"></div>
+      <div class="label">Biscotti: </div> <div data-biscotti class="result"></div>
+      <hr>
+      <div class="label">Your total today: </div> <div data-total class="result"></div>
+    </div>
+    <script>
+      let name = prompt("What is your name?");
+      let numCups = Number(prompt("How many cups of tea would you like?"));
+      let wantBiscotti = confirm("Would you like biscotti with your tea?");
+
+      let total = 1.5 * numCups * 1.09; //$1.50 per cup + 9% sales tax
+      if (wantBiscotti) {
+        total += 2;
+      }
+
+      const custNameElement = document.querySelector('[data-customer]');
+      const numCupsElement = document.querySelector('[data-num-cups');
+      const biscottiElement = document.querySelector('[data-biscotti');
+      const totalElement = document.querySelector('[data-total');
+
+      custNameElement.innerText = name;
+
+      numCupsElement.innerText = numCups;
+
+      if (wantBiscotti) {
+        biscottiElement.innerText = "Yes";
+      } else {
+        biscottiElement.innerText = "No";
+      }
+
+      totalElement.innerText = "$" + total.toFixed(2);
+    </script>
+  </body>
+</html>
