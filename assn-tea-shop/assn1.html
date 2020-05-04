@@ -12,14 +12,14 @@
     </div>
     <div id="results">
       <div class="label">Order for:</div>
-      <div data-customer class="result"></div>
+      <div id="customer" class="result"></div>
       <div class="label">Cups of Tea:</div>
-      <div data-num-cups class="result"></div>
+      <div id="cups" class="result"></div>
       <div class="label">Biscotti:</div>
-      <div data-biscotti class="result"></div>
+      <div id="biscotti" class="result"></div>
       <hr />
       <div class="label">Your total today:</div>
-      <div data-total class="result"></div>
+      <div id="total" class="result"></div>
     </div>
     <script>
       let name = prompt("What is your name?");
@@ -31,10 +31,10 @@
         total += 2;
       }
 
-      const custNameElement = document.querySelector("[data-customer]");
-      const numCupsElement = document.querySelector("[data-num-cups");
-      const biscottiElement = document.querySelector("[data-biscotti");
-      const totalElement = document.querySelector("[data-total");
+      let custNameElement = document.getElementById("customer");
+      let numCupsElement = document.getElementById("cups");
+      let biscottiElement = document.getElementById("biscotti");
+      let totalElement = document.getElementById("total");
 
       custNameElement.innerText = name;
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Converter</title>
+  </head>
+  <body>
+    <button id="celsToFahr">Convert Celsius to Fahrenheit</button>
+    <button id="fahrToCels">Convert Fahrenheit to Celsius</button>
+    <button id="calcBMI">Calculate BMI</button>
+    <script>
+      /*
+          This function prompts the user for a Celsius
+          temperature, converts it to Fahrenheit and
+          displays the result
+        */
+      function convertCF() {
+        let degCels = prompt("Enter temperature in Celsius");
+        let degFahr = (degCels / 5) * 9 + 32;
+        alert(degCels + "° in F: " + degFahr);
+      }
+
+      /*
+          This function prompts the user for a fahrenheit 
+          temperature, converts it to Celsius and 
+          displays the result
+          */
+      function convertFC() {
+        let degFahr = prompt("Enter temperature in Fahrenheit");
+        let degCels = ((degFahr - 32) * 5) / 9;
+        alert(degFahr + "° in C: " + degCels);
+      }
+
+      /*
+          This function takes a weight in pounds
+          and multiples it by 0.45 to convert the weight to kilograms
+          and returns the result
+          */
+      function convertWeight(weightInLbs) {
+        return weightInLbs * 0.45;
+      }
+
+      /*
+          This function takes a height in inches and
+          multiplies is by 0.025 to convert the height to meters
+          and returns the result
+        */
+      function convertHeight(heightInInches) {
+        return heightInInches * 0.025;
+      }
+
+      /*
+          This function takes a value and squares it
+          and returns the result
+          */
+      function square(num) {
+        return Math.pow(num, 2);
+      }
+
+      /*
+        This function prompts the user for information about their body,
+        calculates their BMI and returns the resut
+        */
+      function calcBMI() {
+        let weightInLbs = prompt("Enter weight in pounds");
+        let heightInInches = prompt("Enter height in inches");
+
+        //convert input to metric units
+        let weightInKilos = convertWeight(weightInLbs);
+        let heightInMeters = convertHeight(heightInInches);
+
+        let bmi = weightInKilos / square(heightInMeters);
+
+        alert("Your BMI is " + bmi.toFixed(2));
+      }
+
+      //access button elements
+      let celsToFahrBtn = document.getElementById("celsToFahr");
+      let fahrToCelsBtn = document.getElementById("fahrToCels");
+      let calcBMIBtn = document.getElementById("calcBMI");
+
+      //define behavior for buttons
+      celsToFahrBtn.onclick = convertCF;
+      fahrToCelsBtn.onclick = convertFC;
+      calcBMIBtn.onclick = calcBMI;
+    </script>
+  </body>
+</html>
