@@ -1,3 +1,9 @@
+<!--
+Author: Sabrina LaGasse
+Date: 5-5-2020
+Url: https://slagasse.greenriverdev.com/207/assn3.html
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +13,10 @@
     <style>
       body {
         text-align: center;
+      }
+      button {
+        display: block;
+        margin: auto;
       }
       ul {
         list-style-type: none;
@@ -21,7 +31,8 @@
       <h1>Pick-a-Pet</h1>
     </header>
     <main>
-      <img src="images/pets.jpg" alt="Picture of pets" />
+      <img id="pet-pic" src="images/pets.jpg" alt="Picture of pets" />
+      <button id="petBtn">Pick a pet!</button>
       <ul>
         <li>
           Age:
@@ -42,9 +53,11 @@
         This function asks for the user's age until the input is greater than 1,
         then returns the age as a whole number.
         */
-      function getAge() {
+      function getAge() 
+      {
         let age;
-        do {
+        do 
+        {
           age = prompt("What is your age?");
         } while (age <= 0 || isNaN(age)); //keep asking while age is not greater than 0
 
@@ -56,10 +69,12 @@
       and keeps asking until valid input of "indoor" or "outdoor" (case-insensitive)
       and returns the result
       */
-      function getType() {
+      function getType() 
+      {
         let type;
 
-        do {
+        do 
+        {
           type = prompt("Do you want an indoor or outdoor pet?").toLowerCase();
         } while (type != "indoor" && type != "outdoor");
 
@@ -67,11 +82,14 @@
       }
 
       /*
-      This function takes an age and a type as parameters, and uses these
-      to determne and display a summary, including the age, type, 
+      This function gets the age and type of pet, and uses these
+      to determine and display a summary, including the age, type, 
       and the pet recommendation
       */
-      function pickPet(age, type) {
+      function pickPet() 
+      {
+        let age = getAge();
+        let type = getType();
         let rec = getRec(age, type);
 
         ageElement.innerText = age;
@@ -83,38 +101,57 @@
       This is a helper function for pickPet(), it returns the
       pet recommendation based on the parameters, age and type
       */
-      function getRec(age, type) {
+      function getRec(age, type)
+      {
         let rec;
-        if (age < 10) {
+        if (age < 10) 
+        {
           //ages [1, 10)
           rec = "pet rock";
-        } else if (age < 25) {
+        } 
+        else if (age < 25) 
+        {
           //ages [10, 25)
-          if (type == "indoor") {
+          if (type == "indoor") 
+          {
             //indoor pet
             rec = "hamster";
-          } else {
+          } 
+          else 
+          {
             //outdoor pet
             rec = "chicken";
           }
-        } else if (age < 50) {
+        } 
+        else if (age < 50) 
+        {
           //ages [25, 50)
-          if (type == "indoor") {
+          if (type == "indoor") 
+          {
             //indoor pet
             rec = "dog";
-          } else {
+          } 
+          else 
+          {
             //outdoor pet
             rec = "horse";
           }
-        } else if (age > 100) {
+        }
+        else if (age > 100) 
+        {
           //age 101+
           rec = "unicorn";
-        } else {
+        } 
+        else 
+        {
           //ages [50, 100]
-          if (type == "indoor") {
+          if (type == "indoor") 
+          {
             //indoor pet
             rec = "cat";
-          } else {
+          } 
+          else 
+          {
             //outdoor pet
             rec = "goat";
           }
@@ -128,9 +165,10 @@
       const typeElement = document.getElementById("pet-type");
       const recElement = document.getElementById("pet-rec");
 
-      //function calls23
+      //connect to button
+      const petButton = document.getElementById("petBtn");
+      petButton.onclick = pickPet;
 
-      pickPet(getAge(), getType());
     </script>
   </body>
 </html>
