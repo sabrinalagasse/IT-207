@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM PRACTICE</title>
+    <style>
+      .morphStyle {
+        border: thick solid red;
+        padding: 3em;
+        background-color: black;
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM PRACTICE</h1>
+    <input type="text" id="fname" value="First Name" />
+    <button id="btnClick">Click me!</button>
+    <p id="p1">This is a paragraph</p>
+    <button id="btnStyle">Change style</button>
+    <script>
+      let p1 = document.getElementById("p1");
+      let btnStyle = document.getElementById("btnStyle");
+
+      btnStyle.onclick = morph;
+
+      function morph() {
+        if (p1.className == "") {
+          p1.className = "morphStyle";
+        } else {
+          p1.className = "";
+        }
+      }
+
+      //get the text box
+      let txt = document.getElementById("fname");
+
+      //display what's in the text box
+      alert(txt.value);
+
+      //change the value of the textbox
+      txt.value = "Billy Bob";
+
+      //disable the textbox
+      txt.disabled = true;
+
+      //get button
+      let btn = document.getElementById("btnClick");
+      btn.onclick = showMe;
+
+      function showMe() {
+        //clear the text in the textbox
+        clear();
+
+        //disable the button
+        btn.disabled = true;
+        //change the button text to "Go!"
+
+        btn.innerHTML = "Don't click me!";
+      }
+
+      function clear() {
+        txt.value = "";
+      }
+    </script>
+  </body>
+</html>

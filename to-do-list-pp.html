@@ -1,0 +1,78 @@
+<!--
+Author: Sabrina LaGasse
+Date: 5-8-2020
+This web page allows users to manage a simple to do list.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <ul id="tasks"></ul>
+    <input type="text" id="input" />
+    <button id="btn">Add item</button>
+
+    <script>
+      //create an empty array
+      let toDoItems = [];
+
+      //access elements
+      let input = document.getElementById("input");
+      let btn = document.getElementById("btn");
+      let toDoList = document.getElementById("tasks");
+
+      btn.onclick = addItem;
+
+      function addItem() {
+        if (input.value != "" && !contains(input.value)) {
+          //if value is not empty and not already in array
+          //add value to array
+          toDoItems.push(input.value);
+        }
+
+        displayList();
+
+        //clear the text field
+        input.value = "";
+      }
+
+      /*
+	  This functon displays the sorted array on the page
+	  */
+      function displayList() {
+        //reset display
+        toDoList.innerHTML = "";
+
+        //sort the array
+        toDoItems.sort();
+
+        //display each element in array as a list item
+        for (let i = 0; i < toDoItems.length; i++) {
+          toDoList.innerHTML += "<li>" + toDoItems[i] + "</li>";
+        }
+      }
+
+      /* 
+	  This function checks to see if the argument passed in is 
+	  already in the toDoItems array. 
+	  Returns true if search is found, otherwise returns false.
+	  */
+      function contains(search) {
+        let containsSearch = false;
+
+        for (let i = 0; i < toDoItems.length; i++) {
+          if (search == toDoItems[i]) {
+            containsSearch = true;
+          }
+        }
+
+        return containsSearch;
+      }
+    </script>
+  </body>
+</html>
